@@ -12,15 +12,13 @@ int check_cycle(listint_t *list)
 {
 	listint_t *fast_and_furious = list;
 
-	if (list == NULL)
-		return (0);
-
-	while (fast_and_furious->next->next != NULL)
+	while (fast_and_furious->next->next != NULL && list != NULL)
 	{
-		if (list->next == fast_and_furious->next->next)
-			return (1);
+		
 		list = list->next;
 		fast_and_furious = fast_and_furious->next->next;
+		if (list->next == fast_and_furious->next->next)
+			return (1);
 	}
 	return (0);
 }
