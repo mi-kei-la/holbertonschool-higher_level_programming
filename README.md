@@ -1,1 +1,3 @@
-# holbertonschool-higher_level_programming
+# High level
+
+This repository contains all directories pertaining the high level phase of the Holberton School foundations curriculum
