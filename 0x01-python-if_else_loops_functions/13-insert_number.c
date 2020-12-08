@@ -13,18 +13,12 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *tmp = *head;
 	listint_t *dub = NULL;
-	listint_t *new = malloc(sizeof(listint_t) * 2);
+	listint_t *new = malloc(sizeof(listint_t));
 
 	if (head == NULL || new == NULL)
 		return (NULL);
-	if (tmp == NULL)
-	{
-		new->n = number;
-		new->next = NULL;
-		*head = new;
-		return (new);
-	}
-	if (number <= tmp->n)
+
+	if (tmp == NULL || number <= tmp->n)
 	{
 		*head = add_node(head, number);
 		return (*head);
