@@ -21,7 +21,7 @@ if __name__ == "__main__":
     elif sign == '-':
         print("{} - {} = {}" .format(a, b, sub(a, b)))
         exit(0)
-    elif sign == '\*':
+    elif sign == '*':
         print("{} * {} = {}" .format(a, b, mul(a, b)))
         exit(0)
     elif sign == '/':
