@@ -7,9 +7,10 @@ if __name__ == "__main__":
         print("{:d}: {:s}" .format(l, sys.argv[l]))
     elif l > 1:
         print("{} arguments:" .format(l))
-        count = 1
+        count = 0
         for a in sys.argv:
-            print("{:d}: {:s}" .format(count, sys.argv[l]))
+            if count > 1:
+                print("{:d}: {:s}" .format(count, sys.argv[count]))
             count = count + 1
     else:
         print("0 arguments.")
