@@ -9,7 +9,7 @@ if __name__ == "__main__":
         exit(1)
 
     sign = str(argv[2])
-    if sign != '+' and sign != '-' and sign != '/' and sign != '\*':
+    if sign != '+' and sign != '-' and sign != '/' and sign != '*':
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
 
