@@ -4,38 +4,47 @@
 * is_palindrome - check if single linked list is palindrome
 *
 * @head: pointer to start of list
-* Return: 1 if not palindrome, 0 otherwise
+* Return: 1 if palindrome, 0 otherwise
 */
 
 int is_palindrome(listint_t **head)
 {
-	int i, x = 1, y = 0, *array;
-	listint_t *tmp = *head;
+	int count = _count(*head), i, j;
+	listint_t *tmp = *head, *last = NULL;
 
-	if (head == NULL)
-		return (0);
-	if (*head == NULL)
-		return (1);
-
-	array = malloc(sizeof(int));
-	while (tmp)
+	count = count - 1;
+	for (i = 0; i < count; i++)
 	{
-		array = realloc(array, sizeof(int) * x);
-		array[y] = tmp->n;
-		x++;
-		y++;
-		tmp = tmp->next;
-	}
-
-	y = y - 1;
-	for (i = 0; i <= y; i++, y--)
-	{
-		if (array[i] != array[y])
+		last = *head;
+		for (j = 0; j < (count - i); j++)
 		{
-			free(array);
+			last = last->next;
+		}
+		if (tmp->n != last->n)
+		{
 			return (0);
 		}
+		else
+			tmp = tmp->next;
 	}
-	free(array);
 	return (1);
+}
+
+/**
+* _count - count nodes
+*
+* @head: pointer to head
+* Return: number of nodes
+*/
+
+int _count(listint_t *head)
+{
+	int x = 0;
+
+	while (head)
+	{
+		head = head->next;
+		x++;
+	}
+	return (x);
 }
