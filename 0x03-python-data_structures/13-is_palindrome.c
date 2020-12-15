@@ -10,20 +10,20 @@
 int is_palindrome(listint_t **head)
 {
 	int i, x = 0, y = 0, *array;
-	listint_t *tmp = *head, *count = *head;
+	listint_t *tmp = *head;
 
 	if (head == NULL)
 		return (0);
 	if (*head == NULL)
 		return (1);
-	while (count)
+	while (tmp)
 	{
 		x++;
-		count = count->next;
+		tmp = tmp->next;
 	}
 
 	array = malloc(sizeof(int) * x);
-
+	tmp = *head;
 	while (tmp)
 	{
 		array[y] = tmp->n;
@@ -34,8 +34,11 @@ int is_palindrome(listint_t **head)
 	for (i = 0; i < x; i++, y--)
 	{
 		if (array[i] != array[y])
+		{
+			free(array);
 			return (0);
+		}
 	}
-
+	free(array);
 	return (1);
 }
