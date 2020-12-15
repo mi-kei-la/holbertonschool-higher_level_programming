@@ -9,29 +9,26 @@
 
 int is_palindrome(listint_t **head)
 {
-	int i, x = 0, y = 0, *array;
+	int i, x = 1, y = 0, *array;
 	listint_t *tmp = *head;
 
 	if (head == NULL)
 		return (0);
 	if (*head == NULL)
 		return (1);
-	while (tmp)
-	{
-		x++;
-		tmp = tmp->next;
-	}
 
-	array = malloc(sizeof(int) * x);
-	tmp = *head;
+	array = malloc(sizeof(int));
 	while (tmp)
 	{
+		array = realloc(array, sizeof(int) * x);
 		array[y] = tmp->n;
+		x++;
 		y++;
 		tmp = tmp->next;
 	}
+
 	y = y - 1;
-	for (i = 0; i < x; i++, y--)
+	for (i = 0; i <= y; i++, y--)
 	{
 		if (array[i] != array[y])
 		{
