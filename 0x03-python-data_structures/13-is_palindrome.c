@@ -1,63 +1,28 @@
 #include "lists.h"
-
 /**
-* is_palindrome - check if single linked list is palindrome
-*
-* @head: pointer to start of list
-* Return: 1 if palindrome, 0 otherwise
-*/
-
+ * is_palindrome - Check if linked list is palindrome or not
+ * @head: head pointer
+ * Return: 1 if palindrome, 0 if not
+ */
 int is_palindrome(listint_t **head)
 {
-	int i, x = 0, y = 0, count;
-
-	count = _count(*head);
-	count = count - 1;
+	listint_t *tmp = (*head);
+	int array[2048];
+	int y = 0, z;
 	
-	for (i = 0; i < count; i++)
+	if (!head)
+		return (1);
+	while (tmp)
 	{
-		x = indexer(*head, i);
-		y = indexer(*head, (count - i));
-		if (x != y)
+		array[y] = tmp->n;
+		y++;
+		tmp = tmp->next;
+	}
+	y--;
+	for (z = 0; z <= y; y--, z++)
+	{
+		if (array[z] != array[y])
 			return (0);
 	}
 	return (1);
-}
-
-/**
-* _count - count nodes
-*
-* @head: pointer to head
-* Return: number of nodes
-*/
-
-int _count(listint_t *head)
-{
-	int x = 0;
-
-	while (head)
-	{
-		head = head->next;
-		x++;
-	}
-	return (x);
-}
-
-/**
- * indexer - return data of node at index
- * 
- * @head: pointer to start of list
- * @index: node to retrieve
- * 
- * Return: data
- */
-
-int indexer(listint_t *head, int index)
-{
-	int x, ret = 0;
-
-	for (x = 0; x < index && head != NULL; x++)
-		head = head->next;
-	ret = head->n;
-	return (ret);
 }
