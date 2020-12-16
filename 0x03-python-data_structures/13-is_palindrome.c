@@ -9,11 +9,16 @@
 
 int is_palindrome(listint_t **head)
 {
-	int count = _count(*head), i, j;
+	int count = _count(*head), i, j, x;
 	listint_t *tmp = *head, *last = NULL;
 
 	count = count - 1;
-	for (i = 0; i < count; i++)
+	if (count % 2 == 0)
+		x = count / 2;
+	else
+		x =(count + 1) / 2;
+	
+	for (i = 0; i < x; i++)
 	{
 		last = *head;
 		for (j = 0; j < (count - i); j++)
