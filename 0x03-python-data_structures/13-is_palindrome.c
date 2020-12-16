@@ -17,13 +17,9 @@ int is_palindrome(listint_t **head)
 	{
 		last = *head;
 		for (j = 0; j < (count - i); j++)
-		{
 			last = last->next;
-		}
 		if (tmp->n != last->n)
-		{
 			return (0);
-		}
 		else
 			tmp = tmp->next;
 	}
