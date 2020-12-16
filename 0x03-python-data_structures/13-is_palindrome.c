@@ -9,24 +9,17 @@
 
 int is_palindrome(listint_t **head)
 {
-	int count = _count(*head), i, j, x;
-	listint_t *tmp = *head, *last = NULL;
+	int i, x = 0, y = 0, count;
 
+	count = _count(*head);
 	count = count - 1;
-	if (count % 2 == 0)
-		x = count / 2;
-	else
-		x =(count + 1) / 2;
 	
-	for (i = 0; i < x; i++)
+	for (i = 0; i < count; i++)
 	{
-		last = *head;
-		for (j = 0; j < (count - i); j++)
-			last = last->next;
-		if (tmp->n != last->n)
+		x = indexer(*head, i);
+		y = indexer(*head, (count - i));
+		if (x != y)
 			return (0);
-		else
-			tmp = tmp->next;
 	}
 	return (1);
 }
@@ -48,4 +41,23 @@ int _count(listint_t *head)
 		x++;
 	}
 	return (x);
+}
+
+/**
+ * indexer - return data of node at index
+ * 
+ * @head: pointer to start of list
+ * @index: node to retrieve
+ * 
+ * Return: data
+ */
+
+int indexer(listint_t *head, int index)
+{
+	int x, ret = 0;
+
+	for (x = 0; x < index && head != NULL; x++)
+		head = head->next;
+	ret = head->n;
+	return (ret);
 }
