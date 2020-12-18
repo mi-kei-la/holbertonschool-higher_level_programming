@@ -23,3 +23,13 @@ print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
 roman_number = "III"
 print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+roman_number = ""
+print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+roman_number = "JKLBR"
+print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+roman_number = "CXXIV"
+print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
