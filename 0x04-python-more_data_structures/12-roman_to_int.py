@@ -5,6 +5,9 @@ def roman_to_int(roman_string):
         l = {'L': 50, 'X': 10, 'V': 5, 'I': 1}
         romans.update(l)
         nums = list(map(lambda x: romans.get(x), roman_string))
+        for i in roman_string:
+            if i not in romans:
+                return None
         count = len(nums)
         total = 0
         l = count
