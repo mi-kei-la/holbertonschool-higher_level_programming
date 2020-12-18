@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if type(roman_string) == str and roman_string != None:
-        romans = {'M' : 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
+    if type(roman_string) == str and roman_string is not None:
+        romans = {'M': 1000, 'D': 500, 'C': 100}
+        l = {'L': 50, 'X': 10, 'V': 5, 'I': 1}
+        romans.update(l)
         nums = list(map(lambda x: romans.get(x), roman_string))
         count = len(nums)
         total = 0
-        l = 1
-        for i in range(count, 0, -1):
-            print("this is i: {}" .format(i))
-            while (count > l):
-                if (i < nums[l]):
-                    total = total - i
+        l = count
+        c = count - 1
+        for i in range(0, count):
+            l = i + 1
+            if i in range(0, count - 1):
+                if nums[i] < nums[l]:
+                    total = total - nums[i]
                 else:
-                    total = total + i
-                l = l + 1
-                print("this is total on {} iteration: {}" .format(i, total))
-        l = len(nums)
-        total = total + nums[l - 1] 
+                    total = total + nums[i]
+        total = total + nums[c]
         return total
