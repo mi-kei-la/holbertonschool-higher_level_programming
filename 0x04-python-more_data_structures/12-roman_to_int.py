@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if type(roman_string) == str and roman_string is not None:
+    if type(roman_string) == str and roman_string:
         romans = {'M': 1000, 'D': 500, 'C': 100}
         l = {'L': 50, 'X': 10, 'V': 5, 'I': 1}
         romans.update(l)
@@ -18,3 +18,5 @@ def roman_to_int(roman_string):
                     total = total + nums[i]
         total = total + nums[c]
         return total
+    else:
+        return None
