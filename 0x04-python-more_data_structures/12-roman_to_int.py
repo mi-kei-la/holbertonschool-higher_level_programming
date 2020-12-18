@@ -7,7 +7,7 @@ def roman_to_int(roman_string):
         nums = list(map(lambda x: romans.get(x), roman_string))
         for i in roman_string:
             if i not in romans:
-                return None
+                return 0
         count = len(nums)
         total = 0
         l = count
@@ -22,4 +22,4 @@ def roman_to_int(roman_string):
         total = total + nums[c]
         return total
     else:
-        return None
+        return 0
