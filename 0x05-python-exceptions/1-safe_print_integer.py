@@ -5,3 +5,7 @@ def safe_print_integer(value):
         return True
     except ValueError:
         return False
+    except:
+        print("Unexpected error:", sys.exc_info()[0])
+        raise
+        return False
