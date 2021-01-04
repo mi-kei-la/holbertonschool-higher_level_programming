@@ -5,7 +5,5 @@ def safe_function(fct, *args):
         try:
             result = fct(*args)
             return result
-        except ZeroDivisionError:
-            sys.stderr.write("Exception: division by 0\n")
-        except IndexError:
-            sys.stderr.write("Exception: list index out of range\n")
+        except Exception as e:
+            sys.stderr.write("Exception: {}\n".format(e))
