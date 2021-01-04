@@ -7,3 +7,6 @@ def safe_print_integer_err(value):
     except ValueError as ve:
         sys.stderr.write("Exception: {}\n" .format(ve))
         return False
+    except TypeError as te:
+        sys.stderr.write("Exception: {}\n" .format(te))
+        return False
