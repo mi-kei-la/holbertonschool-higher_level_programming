@@ -4,5 +4,4 @@ def safe_print_integer(value):
         print("{:d}" .format(value))
         return True
     except ValueError:
-        print("Could not convert data to an integer.")
         return False
