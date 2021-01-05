@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Empty class Square that defines a square"""
+
+
 class Square:
-    """This is the docstring for an empty class."""
+    """This class was purposefully left blank."""
     pass
