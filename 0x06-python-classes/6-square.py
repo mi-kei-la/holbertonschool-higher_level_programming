@@ -14,6 +14,8 @@ class Square:
         Args:
             size (int): This defines the size of the square.
                 The size is validated in the setter method.
+            position (tuple): This defines the position of the square.
+                The position is validated in the setter method
 
         """
         try:
@@ -67,7 +69,13 @@ class Square:
 
     @position.setter
     def position(self, value):
-        """This method sets the position of a square"""
+        """This method sets the position of a square
+        
+        Args:
+            position: this tuple defines the position of the square.
+                The position is validated with try/except.
+
+        """
         try:
             self.__position = value
             if type(value) is not tuple:
