@@ -2,7 +2,7 @@
 """Function to add two integers or floats.
 
 This function takes two arguments, a and b, and returns the added value.
-The return is the added 
+The return is the added value
 """
 
 
@@ -26,4 +26,10 @@ def add_integer(a, b=98):
         return a + b
     except SyntaxError:
         raise
-
+    except OverflowError:
+        raise OverflowError("numbers are too large")
+    except NameError:
+        raise NameError("undefined variable")
+    except Exception as err:
+        print("Unexpected error: ", err)
+        raise

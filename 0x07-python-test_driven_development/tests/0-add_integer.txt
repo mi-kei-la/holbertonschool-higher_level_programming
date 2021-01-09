@@ -17,8 +17,8 @@ TESTS WITH DIFFERENT NUMBERS
 0
 >>> add_integer(-8, -8)
 -16
->>> print("TESTS WITH STRINGS")
-TESTS WITH STRINGS
+>>> print("TESTS WITH DIF DATA TYPES")
+TESTS WITH DIF DATA TYPES
 >>> add_integer("HI", -9)
 Traceback (most recent call last):
 ...
@@ -27,6 +27,18 @@ TypeError: a must be an integer
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+>>> add_integer([1, 2])
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer((1, 2))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer(a, 8)
+Traceback (most recent call last):
+...
+NameError: name 'a' is not defined
 >>> print("TESTS WITH BOOLEANS AND EMPTY VALUES")
 TESTS WITH BOOLEANS AND EMPTY VALUES
 >>> add_integer(True, 27)
@@ -55,3 +67,7 @@ SyntaxError: invalid syntax
 Traceback (most recent call last):
 ...
 SyntaxError: invalid syntax
+>>> add_integer(8, 7, 8, 8)
+Traceback (most recent call last):
+...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 4 were given
