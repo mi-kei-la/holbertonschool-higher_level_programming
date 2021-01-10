@@ -27,7 +27,7 @@ def add_integer(a, b=98):
     except SyntaxError:
         raise
     except OverflowError:
-        raise OverflowError("numbers are too large")
+        raise OverflowError
     except NameError:
         raise NameError("undefined variable")
     except Exception as err:

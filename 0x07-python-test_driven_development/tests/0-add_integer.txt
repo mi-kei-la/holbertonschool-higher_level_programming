@@ -1,73 +1,102 @@
 >>> add_integer = __import__('0-add_integer').add_integer
+
 >>> print("TESTS WITH DIFFERENT NUMBERS")
 TESTS WITH DIFFERENT NUMBERS
+
 >>> add_integer(5, 10)
 15
+
 >>> add_integer(-5, 10)
 5
+
 >>> add_integer(5.0, 8.2)
 13
+
 >>> add_integer(80000000000000009861249820981035971298568937274827092315970523817091840923715084398507189327490821208509749867294385049876543456789094567890762931498995213956439523019749328097521198742092179061986512097519, 1)
 80000000000000009861249820981035971298568937274827092315970523817091840923715084398507189327490821208509749867294385049876543456789094567890762931498995213956439523019749328097521198742092179061986512097520
+
 >>> add_integer(80000000000000009861249820981035971298568937274827092315970523817091840923715084398507189327490821208509749867294385049876543456789094567890762931498995213956439523019749328097521198742092179061986512097520, 80000000000000009861249820981035971298568937274827092315970523817091840923715084398507189327490821208509749867294385049876543456789094567890762931498995213956439523019749328097521198742092179061986512097519)
 160000000000000019722499641962071942597137874549654184631941047634183681847430168797014378654981642417019499734588770099753086913578189135781525862997990427912879046039498656195042397484184358123973024195039
+
 >>> add_integer(138, 0)
 138
+
 >>> add_integer(0, 0)
 0
+
 >>> add_integer(-8, -8)
 -16
+
 >>> print("TESTS WITH DIF DATA TYPES")
 TESTS WITH DIF DATA TYPES
+
 >>> add_integer("HI", -9)
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
 >>> add_integer("hello")
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
 >>> add_integer([1, 2])
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
 >>> add_integer((1, 2))
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
 >>> add_integer(a, 8)
 Traceback (most recent call last):
 ...
 NameError: name 'a' is not defined
+
 >>> print("TESTS WITH BOOLEANS AND EMPTY VALUES")
 TESTS WITH BOOLEANS AND EMPTY VALUES
+
 >>> add_integer(True, 27)
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
 >>> add_integer(37, False)
 Traceback (most recent call last):
 ...
 TypeError: b must be an integer
+
 >>> add_integer(None)
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
 >>> add_integer()
 Traceback (most recent call last):
 ...
 TypeError: add_integer() missing 1 required positional argument: 'a'
+
 >>> print("TEST INVALID SYNTAX")
 TEST INVALID SYNTAX
+
 >>> add_integer(8, 7a)
 Traceback (most recent call last):
 ...
 SyntaxError: invalid syntax
+
 >>> add_integer(8v, 7)
 Traceback (most recent call last):
 ...
 SyntaxError: invalid syntax
+
 >>> add_integer(8, 7, 8, 8)
 Traceback (most recent call last):
 ...
 TypeError: add_integer() takes from 1 to 2 positional arguments but 4 were given
+
+>>> add_integer(4e2000, 100e200)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
