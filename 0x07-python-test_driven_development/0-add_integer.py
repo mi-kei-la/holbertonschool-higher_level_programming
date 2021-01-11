@@ -1,14 +1,26 @@
 #!/usr/bin/python3
-"""Function to add two integers or floats.
+"""
+Single module function.
+This function adds two integers or floats.
 
-This function takes two arguments, a and b, and returns the added value.
-The return is the added value
 """
 
 
 def add_integer(a, b=98):
     """
-    This function adds two numbers.
+    Function to add two numbers.
+
+    Args:
+        a (int, float): first parameter, mandatory
+        b (int, float): second parameter, 98 by default
+
+    Return: added value.
+
+    Raises:
+        TypeError: when a parameter is not int nor float
+        SyntaxError: when using invalid syntax
+        OverflowError: when result is too large
+        NameError: when using an undefined variable
     """
     if type(a) is not int and type(a) is not float:
         raise TypeError("a must be an integer")

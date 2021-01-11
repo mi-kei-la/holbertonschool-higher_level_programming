@@ -1,16 +1,20 @@
 #!/usr/bin/python3
-"""This function prints "My name is" followed by first and last name.
+"""
+Single function module.
+This function prints a name.
 
-Parameters must be strings, and there should be at least one parameter.
 """
 
 
 def say_my_name(first_name, last_name=""):
-    """Prints text with user parameters.
+    """This function prints "My name is " followed by user given parameters.
 
     Args:
-        first name: string
-        last name: string, not required
+        first_name (str): mandatory first name
+        last_name (str): empty string by default
+
+    Raises:
+        TypeError: when one or more parameters are not string
     """
     if type(first_name) is not str:
         raise TypeError("first_name must be a string")

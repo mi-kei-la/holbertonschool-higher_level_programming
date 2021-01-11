@@ -1,19 +1,25 @@
 #!/usr/bin/python3
-"""This function prints a square of n size with '#'.
+"""
+Single function module.
+Print a square of n size.
 Example: >>> print_square(3)
 ###
 ###
 ###
 
-Returns nothing.
 """
 
 
 def print_square(size):
-    """Prints a square of n size.
+    """This function prints a square of n size with '#'.
 
     Args:
         size: how many octathorpes (#) per side of the square
+
+    Raises:
+        TypeError: when size is not an integer
+        ValueError: when size is less than 0
+        OverflowError: when computing numbers that are too long
     """
     if type(size) is not int and type(size) is not float:
         raise TypeError("size must be an integer")
@@ -31,6 +37,4 @@ def print_square(size):
                     print("#", end='')
                 print()
         except OverflowError:
-            raise
-        except MemoryError:
             raise

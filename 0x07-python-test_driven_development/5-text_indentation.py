@@ -1,16 +1,20 @@
 #!/usr/bin/python3
 """This is a single function module.
-The function takes a string of any size and prints it,
-swapping each period (.), double colon (:) and question mark (?)
-for two empty lines.
+Print any given text with empty lines instead of special characters.
 
-Returns nothing.
 """
 
 
 def text_indentation(text):
     """
-    Print text with empty lines instead of special characters.
+    The function takes a string and prints it, replacing each period (.),\
+    double colon (:) and question mark (?) for two empty lines.
+
+    Args:
+        text (str): text to be printed
+
+    Raises:
+        TypeError: when text is not a string
     """
     if type(text) is not str:
         raise TypeError("text must be a string")
