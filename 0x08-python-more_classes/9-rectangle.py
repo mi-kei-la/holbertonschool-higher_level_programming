@@ -131,4 +131,4 @@ class Rectangle:
 
         Returns: new rectangle
         """
-        return Rectangle(size, size)
+        return cls(size, size)
