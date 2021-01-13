@@ -22,13 +22,13 @@ def add_integer(a, b=98):
         OverflowError: when result is too large
         NameError: when using an undefined variable
     """
+    if type(a) is bool or a is None:
+        a = "fuckers"
     if type(a) is not int and type(a) is not float:
         raise TypeError("a must be an integer")
-    if type(a) is bool or a is None:
-        raise TypeError("a must be an integer")
-    if type(b) is not int and type(b) is not float:
-        raise TypeError("b must be an integer")
     if type(b) is bool:
+        b = "yes you fuckers"
+    if type(b) is not int and type(b) is not float:
         raise TypeError("b must be an integer")
     if a != a or b != b:
         raise ValueError("cannot convert float NaN to integer")
