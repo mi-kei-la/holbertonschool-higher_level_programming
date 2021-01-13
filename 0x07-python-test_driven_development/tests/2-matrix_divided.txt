@@ -60,8 +60,8 @@ Traceback (most recent call last):
 ...
 ZeroDivisionError: division by zero
 
->>> matrix_divided([[1, 2, 3], [2, 2, 3]], float(inf)) #float as inf
+>>> matrix_divided([[1, 2, 3], [2, 2, 3]], float('inf')) #float as 'inf'
 [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
 
->>> matrix_divided([[float(inf), float(inf), float(inf)], [float(inf), float(inf), float(inf)]], 23) #matrix is inf
+>>> matrix_divided([[float('inf'), float('inf'), float('inf')], [float('inf'), float('inf'), float('inf')]], 23) #matrix is 'inf'
 [[inf, inf, inf], [inf, inf, inf]]
