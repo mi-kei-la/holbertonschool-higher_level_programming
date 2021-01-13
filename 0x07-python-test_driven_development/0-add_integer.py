@@ -30,6 +30,8 @@ def add_integer(a, b=98):
         raise TypeError("b must be an integer")
     if type(b) is bool:
         raise TypeError("b must be an integer")
+    if a != a or b != b:
+        raise ValueError("cannot convert float NaN to integer")
 
     a = int(a)
     b = int(b)
