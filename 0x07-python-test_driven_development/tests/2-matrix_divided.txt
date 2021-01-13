@@ -55,7 +55,16 @@ Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
->>> matrix_divided([[1, 2, 3], [5, 8, 3]], 0)
+>>> matrix_divided([[1, 2, 3], [5, 8, 3]], 0) #div is 0
 Traceback (most recent call last):
 ...
 ZeroDivisionError: division by zero
+
+>>> matrix_divided([[0, 0, 0], [0, 0, 0]], 23) #matrix is 0
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+>>> matrix_divided([[1, 2, 3], [2, 2, 3]], float(40000e128)) #float as inf
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+>>> matrix_divided([[1000e10000, 1000e10000, 1000e10000], [1000e10000, 1000e10000, 1000e10000]], 23) #matrix is inf
+[[inf, inf, inf], [inf, inf, inf]]
