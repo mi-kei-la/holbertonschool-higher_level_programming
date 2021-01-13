@@ -63,5 +63,5 @@ ZeroDivisionError: division by zero
 >>> matrix_divided([[1, 2, 3], [2, 2, 3]], float(inf)) #float as inf
 [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
 
->>> matrix_divided([[1000e10000, 1000e10000, 1000e10000], [1000e10000, 1000e10000, 1000e10000]], 23) #matrix is inf
+>>> matrix_divided([[inf, inf, inf], [inf, inf, inf]], 23) #matrix is inf
 [[inf, inf, inf], [inf, inf, inf]]
