@@ -22,7 +22,10 @@ def matrix_divided(matrix, div):
         ZeroDivisionError: when div is 0
 
     """
+    # Save text of Type Error as variable.
     te = "matrix must be a matrix (list of lists) of integers/floats"
+
+    # Check type and value of parameters.
     if type(div) is not int and type(div) is not float:
         raise TypeError("div must be a number")
     if div == 0:
@@ -30,11 +33,14 @@ def matrix_divided(matrix, div):
     if type(matrix) is not list:
         raise TypeError(te)
 
+    # Save size of first row of matrix, as long as matrix is a list of lists.
+    # If matrix is just one list, raise TypeError with message saved above.
     try:
         size = len(matrix[0])
     except TypeError:
         raise TypeError(te)
 
+    # Check if all rows are the same size and of type list.
     for row in matrix:
         if type(row) is not list:
             raise TypeError(te)
@@ -43,6 +49,8 @@ def matrix_divided(matrix, div):
         else:
             raise TypeError("Each row of the matrix must have the same size")
 
+    # Create new matrix, and append the result of the division of
+    # each value of the matrix by div, rounded to two decimal places.
     new = []
     for row in matrix:
         newrow = []
@@ -53,4 +61,5 @@ def matrix_divided(matrix, div):
                 raise TypeError(te)
         new.append(newrow)
 
+    # Return new matrix.
     return new
