@@ -1,45 +1,67 @@
->>> text_indentation = __import__('5-text_indentation').text_indentation
+Import file:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
 
->>> text_indentation("Hello, this is a test string. Today's weather: ???")
-Hello, this is a test string.
-<BLANKLINE>
-Today's weather:
-<BLANKLINE>
-?
-<BLANKLINE>
-?
-<BLANKLINE>
-?
-<BLANKLINE>
+String with all the special characters:
+    >>> text_indentation("Hello, this is a test string. Today's weather: ?who dis")
+    Hello, this is a test string.
+    <BLANKLINE>
+    Today's weather:
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    who dis
 
->>> text_indentation("...")
-.
-<BLANKLINE>
-.
-<BLANKLINE>
-.
-<BLANKLINE>
+Just a simple string:
+    >>> text_indentation("Hiiii")
+    Hiiii
 
->>> text_indentation(28)
-Traceback (most recent call last):
-...
-TypeError: text must be a string
+String with a blank line:
+    >>> text_indentation("Oh yes, \nhello")
+    Oh yes, 
+    hello
 
->>> text_indentation()
-Traceback (most recent call last):
-...
-TypeError: text_indentation() missing 1 required positional argument: 'text'
+Integer:
+    >>> text_indentation(28)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
 
->>> text_indentation(""")
-Traceback (most recent call last):
-...
-SyntaxError: EOF while scanning triple-quoted string literal
+No parameters:
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
 
->>> text_indentation("                   hiiii")
-                   hiiii
+Triple quote:
+    >>> text_indentation(""")
+    Traceback (most recent call last):
+    ...
+    SyntaxError: EOF while scanning triple-quoted string literal
 
->>> text_indentation("hello                   ")
-hello                   
+Many spaces before text:
+    >>> text_indentation("                   hiiii")
+                       hiiii
 
->>> text_indentation("gul'ack")
-gul'ack
+Many spaces after text:
+    >>> text_indentation("hello                   ")
+    hello                   
+
+Single apostrophe in the middle of a text:
+    >>> text_indentation("gul'ack")
+    gul'ack
+
+Period between letters:
+    >>> text_indentation("Hello.Peasant")
+    Hello.
+    <BLANKLINE>
+    Peasant
+
+Simple string:
+    >>> text_indentation("Holberton. School? How are you: John")
+    Holberton.
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
+    How are you:
+    <BLANKLINE>
+    John
