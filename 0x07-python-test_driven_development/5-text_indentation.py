@@ -27,19 +27,27 @@ def text_indentation(text):
     # Convert text to list.
     listext = list(text)
 
+    # Loop through list of special characters.
+    # Count the number of times that character appears in text,
+    # and start index at 0. Index and end are updated every time
+    # a special character is found, and then whitelines are inserted.
+    # If there was a space after the character, it's skipped.
     for c in chars:
         idx = 0
         spc = 0
         end = listext.count(c)
         while end:
             idx = listext.index(c, idx)
-            if ' ' in listext:
+            try:
                 spc = listext.index(' ', idx)
                 if idx + 1 == spc:
                     listext.pop(spc)
+            except ValueError:
+                pass
             listext.insert(idx + 1, "\n\n")
             idx += 3
             end -= 1
 
     # Print final text.
     print("".join(listext))
+
