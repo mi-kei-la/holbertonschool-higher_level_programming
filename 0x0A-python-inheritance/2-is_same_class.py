@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """This is a single function module.
 
-is_same_class: check if a given object is \
-exactly an instance of a given class.
+is_same_class: check if a given object is exactly an instance of a given class.
 """
 
 

@@ -13,14 +13,11 @@ class MyList(list):
 
     """
     def print_sorted(self):
-        """Print int list in ascending order, without altering its order.
+        """Print int list in ascending order.
 
         Raises:
             ValueError: if list is empty.
         """
-        if len(self) == 0:
-            raise ValueError("list cannot be empty")
-        alreadysortedlist = self[:]
-        alreadysortedlist.sort()
-        print(alreadysortedlist)
-        del(alreadysortedlist)
+        if type(self) != MyList:
+            raise TypeError("object must be a MyList")
+        print(sorted(self))
