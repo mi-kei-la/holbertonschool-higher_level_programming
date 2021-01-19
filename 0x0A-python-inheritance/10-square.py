@@ -10,7 +10,7 @@ Classes:
 
 class BaseGeometry():
     """This class was not left empty.
-    
+
     Instead, it has a method which raises an exception, \
     and a method to validate values.
     """
@@ -38,9 +38,10 @@ class BaseGeometry():
             raise ValueError("{} must be greater than 0".format(name))
         pass
 
+
 class Rectangle(BaseGeometry):
     """This class instantiates Rectangle type objects.
-    
+
     Methods:
         area: returns area of the rectangle.
     """
@@ -67,6 +68,7 @@ class Rectangle(BaseGeometry):
         except Exception as e:
             raise
 
+
 class Square(Rectangle):
     """This class instantiates an object of type Square.
 
@@ -75,7 +77,7 @@ class Square(Rectangle):
     """
     def __init__(self, size):
         """Creates an object of type square, validating the parameters.
-        
+
         Args:
             size (int): size of each side of the square.
         """

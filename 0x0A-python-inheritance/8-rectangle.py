@@ -9,7 +9,7 @@ Class:
 
 class BaseGeometry():
     """This class was not left empty.
-    
+
     Instead, it has a method which raises an exception, \
     and a method to validate values.
     """
@@ -36,6 +36,7 @@ class BaseGeometry():
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
         pass
+
 
 class Rectangle(BaseGeometry):
     """This class instantiates Rectangle type objects."""

@@ -7,7 +7,7 @@ The class BaseGeometry was purposefully left almost empty.
 
 class BaseGeometry():
     """This class was not left empty.
-    
+
     Instead, it has a single method, which raises an exception.
     """
     def area(self):

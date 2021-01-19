@@ -1,10 +1,12 @@
-Import module:
+Import class:
     >>> MyList = __import__('1-my_list').MyList
 
-Create new list:
+Create new instance:
     >>> x = MyList()
 
 Print empty list:
+    >>> print(x)
+    []
     >>> x.print_sorted()
     []
 
@@ -15,11 +17,15 @@ Append values to list:
     >>> x.append(8)
 
 Print list with positive ints:
+    >>> print(x)
+    [16, 32, 124, 8]
     >>> x.print_sorted()
     [8, 16, 32, 124]
 
 Print list with negative number:
     >>> x.append(-23)
+    >>> print(x)
+    [16, 32, 124, 8, -23]
     >>> x.print_sorted()
     [-23, 8, 16, 32, 124]
 

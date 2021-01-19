@@ -7,7 +7,7 @@ is_kind_of_class: check if a given object is instance of a class.
 
 def is_kind_of_class(obj, a_class):
     """Checks if a given object is instance of a given class.
-    
+
     Args:
         obj: object to check.
         a_class: class given.

@@ -7,7 +7,7 @@ The class BaseGeometry was purposefully left almost empty.
 
 class BaseGeometry():
     """This class was not left empty.
-    
+
     Instead, it has a method which raises an exception,
     and a method to validate values.
     """
