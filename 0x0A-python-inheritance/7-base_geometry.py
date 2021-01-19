@@ -27,6 +27,8 @@ class BaseGeometry():
                         if name is not a string
             ValueError: if value is less or equal to 0.
         """
+        if type(name) != str:
+            raise TypeError("name must be a string")
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
