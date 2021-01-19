@@ -1,0 +1,26 @@
+Import module:
+    >>> MyList = __import__('1-my_list').MyList
+
+Create new list:
+    >>> x = MyList()
+
+Print empty list:
+    >>> x.print_sorted()
+    Traceback (most recent call last):
+    ...
+    ValueError: list cannot be empty
+
+Append values to list:
+    >>> x.append(16)
+    >>> x.append(32)
+    >>> x.append(124)
+    >>> x.append(8)
+
+Print list with positive ints:
+    >>> x.print_sorted()
+    [8, 16, 32, 124]
+
+Print list with negative number:
+    >>> x.append(-23)
+    >>> x.print_sorted()
+    [-23, 8, 16, 32, 124]

@@ -1,0 +1,28 @@
+Import file:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Create class instance:
+    >>> testbg = BaseGeometry()
+
+No parameters:
+    >>> testbg.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Int as name:
+    >>> testbg.integer_validator(28, 28)
+    Traceback (most recent call last):
+    TypeError: name must be a string
+
+Str as value:
+    >>> testbg.integer_validator("this too", "wont pass")
+    Traceback (most recent call last):
+    TypeError: this too must be an integer
+
+Valid parameters:
+    >>> testbg.integer_validator("obsession", 100)
+
+Float as value:
+    >>> testbg.integer_validator("floating", 8.2)
+    Traceback (most recent call last):
+    TypeError: floating must be an integer
