@@ -9,5 +9,5 @@ def add_attribute(object, name, value):
     """Add new attribute to object whenever possible."""
     try:
         setattr(object, name, value)
-    except Exception:
+    except AttributeError:
         raise TypeError("can't add new attribute")
