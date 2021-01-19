@@ -12,6 +12,8 @@ class MyInt(int):
     """
     def __new__(self, value):
         """This creates a new instance of type MyInt."""
+        if type(value) != int:
+            raise TypeError
         self.value = value
         return self.value
 
