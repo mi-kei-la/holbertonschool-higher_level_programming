@@ -6,23 +6,20 @@ save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
-def is_file_empty(file_name):
-    """ Check if file is empty by reading first character in it"""
-    # open file in read mode
-    with open(file_name, 'a+') as read_obj:
-        # read first character
-        one_char = read_obj.read(1)
-        # if not fetched then file is empty
-        if not one_char:
-            print("File is empty")
-            return True
-    print("File is not empty")
-    return False
+# Save arguments to new list.
+args_list = argv[1:]
 
+# Variable with the name of the json file to modify.
 filename = "add_item.json"
-dumplist = list(argv)
-dumplist.pop(0)
-print(dumplist)
-if is_file_empty(filename):
-    save_to_json_file(dumplist, filename)
-    is_file_empty(filename)
+
+# Try to open json file, and create new list with
+# the contents of the file and the arguments list.
+# If the file does not exist, it should be created,
+# and arguments will be written.
+try:
+    jfile = load_from_json_file(filename)
+    jlist = list(jfile)
+    final_list = jlist + args_list
+    save_to_json_file(final_list, filename)
+except FileNotFoundError:
+    save_to_json_file(args_list, filename)
