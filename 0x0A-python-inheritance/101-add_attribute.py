@@ -7,6 +7,7 @@ This function adds an attribute to a given object if possible.
 
 def add_attribute(object, name, value):
     """Add new attribute to object whenever possible."""
-    setattr(object, name, value)
-    if AttributeError:
+    try:
+        setattr(object, name, value)
+    except AttributeError:
         raise TypeError("can't add new attribute")
