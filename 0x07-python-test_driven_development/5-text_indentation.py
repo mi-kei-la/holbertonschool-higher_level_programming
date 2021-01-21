@@ -50,4 +50,3 @@ def text_indentation(text):
 
     # Print final text.
     print("".join(listext))
-

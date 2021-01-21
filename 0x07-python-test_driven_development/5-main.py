@@ -2,14 +2,24 @@
 text_indentation = __import__('5-text_indentation').text_indentation
 
 text_indentation("Holberton. School")
-
+print("***")
 text_indentation("Holberton.School")
-
+print("***")
 text_indentation("Holberton. School? How are you: John")
-
+print("***")
+text_indentation("Hello, this is a test string. Today's weather: ?")
+print("***")
+text_indentation("Hiiii")
+print("***")
+text_indentation("Oh yes, \nhello")
+print("***")
+text_indentation("                   hiiii")
+print("***")
+text_indentation("Hello.Peasant")
+print("***")
+text_indentation("Holberton. School? How are you: John")
+print("***")
 text_indentation(12)
-
-
 
 text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
 Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
