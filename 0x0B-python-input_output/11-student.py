@@ -28,6 +28,7 @@ class Student:
 
     def reload_from_json(self, json):
         """Replace all attributes with json attributes."""
-        for ats, values in json:
+        for ats in json:
             if hasattr(self, ats):
-                setattr(self, ats, values)
+                val = json[ats]
+                setattr(self, ats, val)
