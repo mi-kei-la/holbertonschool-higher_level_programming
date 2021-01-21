@@ -5,9 +5,9 @@ This function adds an attribute to a given object if possible.
 """
 
 
-def add_attribute(obj, name, value):
+def add_attribute(object, name, value):
     """Add new attribute to object whenever possible."""
-    if hasattr(obj, name) is True:
-        setattr(obj, name, value)
-    else:
+    try:
+        setattr(object, name, value)
+    except AttributeError:
         raise TypeError("can't add new attribute")
