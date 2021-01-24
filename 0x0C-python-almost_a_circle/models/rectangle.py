@@ -10,10 +10,11 @@ class Rectangle(Base):
     """This class defines a Rectangle object.
 
     Methods:
-        Setter and Getter methods for all arguments at creation.
-        Area: calculates the area of the Rectangle.
-        Display: print object.
-        Update: update several values.
+        setter and Getter methods for all arguments at creation.
+        area: calculates the area of the Rectangle.
+        display: print object.
+        update: update several values.
+        to_dictionary: return dictionary of arguments and values.
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize instance, checking input."""

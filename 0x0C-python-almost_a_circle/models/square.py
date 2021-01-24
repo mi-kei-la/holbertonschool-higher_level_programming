@@ -4,7 +4,11 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """The following code defines the class square."""
+    """The following code defines the class square.
+
+    Methods:
+        update: update all values.
+    """
     def __init__(self, size, x=0, y=0, id=None):
         """This creates a new instance of this class."""
         super().__init__(size, size, x, y, id)
@@ -29,11 +33,9 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Updates all values.
-        Args should be in the following order:
-            Id
-            Size
-            X
-            Y
+        Args should be in the following order: Id, Size, X, Y
+        or in key-value pairs. If args are passed, these will be
+        treated with preference over key-value pairs.
         """
         if args:
             if len(args) > 4:
