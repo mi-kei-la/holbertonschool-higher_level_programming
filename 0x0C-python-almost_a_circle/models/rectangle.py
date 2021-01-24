@@ -134,7 +134,8 @@ class Rectangle(Base):
                 setattr(self, ats[i], ar_list[i])
         else:
             for key in kwargs:
-                setattr(self, key, kwargs[key])
+                if hasattr(self, key):
+                    setattr(self, key, kwargs[key])
 
     def to_dictionary(self):
         """Return the dictionary representation of a Rectangle."""

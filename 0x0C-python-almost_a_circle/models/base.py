@@ -43,13 +43,12 @@ class Base():
                 else:
                     obj_dic = obj.to_dictionary()
                     ret_list.append(obj_dic)
-            print(ret_list)
             ret_str = obj.to_json_string(ret_list)
-            with open(filename,"w") as f:
+            with open(filename, "w") as f:
                 f.write(ret_str)
             return
         else:
-            with open(filename,"w") as f:
+            with open(filename, "w") as f:
                 f.write(ret_list)
 
     @staticmethod
@@ -65,6 +64,23 @@ class Base():
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with attributes set."""
-        dummy = Rectangle(8, 16, 24, 42)
-        dummy.update(dictionary)
+        dummy = cls(1, 1, 1, 1)
+        cls.update(dummy, **dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances from a given file."""
+        filename = cls.__name__ + ".json"
+        retlist = []
+        try:
+            with open(filename, "r") as f:
+                j_string = f.read()
+            dics = cls.from_json_string(j_string)
+            for dic in dics:
+                if type(dic) is dict:
+                    obj = cls.create(**dic)
+                    retlist.append(obj)
+            return retlist
+        except IOError:
+            return []

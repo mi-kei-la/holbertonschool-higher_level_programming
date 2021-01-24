@@ -51,10 +51,11 @@ class Square(Rectangle):
         else:
             for key in kwargs:
                 if type(key) is str and type(kwargs[key]) is int:
-                    if key == "size":
-                        setattr(self, "width", kwargs[key])
-                    else:
-                        setattr(self, key, kwargs[key])
+                    if hasattr(self, key):
+                        if key == "size":
+                            setattr(self, "width", kwargs[key])
+                        else:
+                            setattr(self, key, kwargs[key])
                 else:
                     raise TypeError("all values must be int")
 
