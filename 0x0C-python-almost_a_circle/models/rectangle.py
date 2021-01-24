@@ -7,7 +7,14 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """This class defines a Rectangle object."""
+    """This class defines a Rectangle object.
+
+    Methods:
+        Setter and Getter methods for all arguments at creation.
+        Area: calculates the area of the Rectangle.
+        Display: print object.
+        Update: update several values.
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize instance, checking input."""
         super().__init__(id)
@@ -99,24 +106,42 @@ class Rectangle(Base):
 
     def display(self):
         """Prints rectangle with # characters."""
-        if self.__y > 0:
-            for y in range(self.__y):
-                print("")
+        for y in range(self.y):
+            print("")
         for h in range((self.__height)):
-            if self.__y > 0:
-                for y in range(self.__y):
-                    print(' ', end='')
+            for x in range(self.x):
+                print(' ', end='')
             for w in range(self.__width):
                 print('#', end='')
             print("")
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Updates all values.
         Args should be in the following order:
-            Id
-            Width
-            Height
-            X
-            Y
+            Id, Width, Height, x, y.
         """
-        
+        if args:
+            if len(args) > 5:
+                raise ValueError("function takes between 1 and 5 arguments," +
+                                 " but {} were passed".format(len(args)))
+            ats = ["id", "__width", "__height", "__x", "__y"]
+            ar_list = []
+            for arg in args:
+                if type(arg) is not int:
+                    raise TypeError("all arguments must be int")
+                ar_list.append(arg)
+            for i in range(len(ar_list)):
+                setattr(self, ats[i], ar_list[i])
+        else:
+            for key in kwargs:
+                setattr(self, key, kwargs[key])
+
+    def to_dictionary(self):
+        """Return the dictionary representation of a Rectangle."""
+        rect_dic = {}
+        rect_dic["id"] = self.id
+        rect_dic["width"] = self.width
+        rect_dic["height"] = self.height
+        rect_dic["x"] = self.x
+        rect_dic["y"] = self.y
+        return rect_dic
