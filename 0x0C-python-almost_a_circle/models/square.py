@@ -8,6 +8,7 @@ class Square(Rectangle):
 
     Methods:
         update: update all values.
+        to_dictionary: return dictionary of arguments
     """
     def __init__(self, size, x=0, y=0, id=None):
         """This creates a new instance of this class."""

@@ -28,7 +28,7 @@ class Rectangle(Base):
         if type(y) is not int:
             raise TypeError("y must be an integer")
         if width <= 0:
-            raise ValueError("width musth be > 0")
+            raise ValueError("width must be > 0")
         if height <= 0:
             raise ValueError("height must be > 0")
         if x < 0:
@@ -123,8 +123,8 @@ class Rectangle(Base):
         """
         if args:
             if len(args) > 5:
-                raise ValueError
-            ats = ["id", "__width", "__height", "__x", "__y"]
+                raise TypeError
+            ats = ["id", "width", "height", "x", "y"]
             ar_list = []
             for arg in args:
                 if type(arg) is not int:

@@ -19,6 +19,6 @@ if __name__ == "__main__":
     r1.update(89, 2, 3, 4)
     print(r1)
 
-    r1.update(89, 2, 3, 4, 8, 26, 32, 42)
+    r1.update(89, 2, 3, 4, 8)
     print(r1)
 

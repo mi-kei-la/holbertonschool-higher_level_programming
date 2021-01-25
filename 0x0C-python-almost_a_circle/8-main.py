@@ -16,5 +16,7 @@ if __name__ == "__main__":
     r1.update(y=1, width=2, x=3, id=89)
     print(r1)
 
-    r1.update(x=1, height=2, y=3, width=4)
+    r1.update(x=1, height=2, y=3, width=4, x=2, answer=42)
     print(r1)
+    s = r1.__dict__
+    print(s)
