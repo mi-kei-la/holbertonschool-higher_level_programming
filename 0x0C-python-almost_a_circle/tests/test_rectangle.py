@@ -142,12 +142,27 @@ class TestRectangle(unittest.TestCase):
 
     def test_update(self):
         """Test update method."""
+        # Test valid args
         inst_update = Rectangle(1, 1, 0, 0, 1)
         self.assertEqual(inst_update.to_dictionary(),
                          {'id': 1, 'width': 1, 'height': 1, 'x': 0, 'y': 0})
         inst_update.update(13, 3, 2 , 0, 0)
         self.assertEqual(inst_update.to_dictionary(),
                          {'id': 13, 'width': 3, 'height': 2, 'x': 0, 'y': 0})
+        # Test valid kwargs
+        inst_update = Rectangle(1, 1, 0, 0, 1)
+        self.assertEqual(inst_update.to_dictionary(),
+                         {'id': 1, 'width': 1, 'height': 1, 'x': 0, 'y': 0})
+        inst_update.update(id=13, width=3, height=2 , x=0, y=0)
+        self.assertEqual(inst_update.to_dictionary(),
+                         {'id': 13, 'width': 3, 'height': 2, 'x': 0, 'y': 0})
+        # Test valid args and kwargs
+        inst_update = Rectangle(1, 1, 0, 0, 1)
+        self.assertEqual(inst_update.to_dictionary(),
+                         {'id': 1, 'width': 1, 'height': 1, 'x': 0, 'y': 0})
+        inst_update.update(13, 1, 1, width=3, height=2)
+        self.assertEqual(inst_update.to_dictionary(),
+                         {'id': 13, 'width': 1, 'height': 1, 'x': 0, 'y': 0})
 
     def test_update_failure(self):
         """Test failures of update method."""
@@ -156,8 +171,11 @@ class TestRectangle(unittest.TestCase):
             # More than five args
             inst_up.update(1, 2, 3, 3, 1, 2)
         with self.assertRaises(TypeError):
-            # Wrong data type
+            # Wrong data type as args
             inst_up.update(1, 1, 'test', [1], 1)
+        with self.assertRaises(TypeError):
+            # Wrong data type as kwargs
+            inst_up.update(id=1, width=1, height='test', x=[1], y=1)
 
 if __name__ == '__main__':
     unittest.main()
