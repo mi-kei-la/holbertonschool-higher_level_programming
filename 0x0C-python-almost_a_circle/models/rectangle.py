@@ -123,13 +123,12 @@ class Rectangle(Base):
         """
         if args:
             if len(args) > 5:
-                raise ValueError("function takes between 1 and 5 arguments," +
-                                 " but {} were passed".format(len(args)))
+                raise ValueError
             ats = ["id", "__width", "__height", "__x", "__y"]
             ar_list = []
             for arg in args:
                 if type(arg) is not int:
-                    raise TypeError("all arguments must be int")
+                    raise TypeError
                 ar_list.append(arg)
             for i in range(len(ar_list)):
                 setattr(self, ats[i], ar_list[i])

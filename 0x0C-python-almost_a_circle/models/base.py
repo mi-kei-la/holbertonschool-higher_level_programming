@@ -49,7 +49,7 @@ class Base():
             # written to a file.
             for obj in list_objs:
                 if isinstance(obj, Base) is False:
-                    raise TypeError("objs in list must be instance of Base")
+                    raise TypeError
                 else:
                     obj_dic = obj.to_dictionary()
                     ret_list.append(obj_dic)
@@ -149,7 +149,7 @@ class Base():
                     retlist.append(obj)
             return retlist
         except IOError:
-            raise IOError("file does not exist")
+            raise IOError
 
     @staticmethod
     def from_json_string(json_string):
@@ -168,7 +168,7 @@ class Base():
         """
         if list_dictionaries and len(list_dictionaries) > 0:
             if type(list_dictionaries) is not list:
-                raise TypeError("argument must be list of dictionaries")
+                raise TypeError
             else:
                 return json.dumps(list_dictionaries)
         else:
