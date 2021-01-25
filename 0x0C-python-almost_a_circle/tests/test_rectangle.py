@@ -8,7 +8,7 @@ class TestRectangle(unittest.TestCase):
     """All tests pertaining the Rectangle class."""
 
     def test_inst_methods(self):
-        """test methods"""
+        """Test methods."""
         # Test instance.
         test_inst = Rectangle(2, 3, 0, 0, 1)
         # Test area of rectangle.
@@ -20,7 +20,7 @@ class TestRectangle(unittest.TestCase):
                          {'id': 1, 'width': 2, 'height': 3, 'x': 0, 'y': 0})
 
     def test_negatives(self):
-        """test negative values"""
+        """Test negative values."""
         with self.assertRaises(ValueError):
             # Negative width.
             fail_inst = Rectangle(-2, 3, 3, 0, 0)
@@ -35,7 +35,7 @@ class TestRectangle(unittest.TestCase):
             fail_inst = Rectangle(-2, 3, 0, -2, 0)
 
     def test_str_values(self):
-        """Test values as strings"""
+        """Test values as strings."""
         with self.assertRaises(TypeError):
             # Str as width
             fail_inst = Rectangle('testStr', 3, 0, 0, 1)
@@ -110,7 +110,7 @@ class TestRectangle(unittest.TestCase):
             fail_inst = Rectangle(2, 3, 0, False, 1)
 
     def test_None_values(self):
-        """Test None values"""
+        """Test None values."""
         with self.assertRaises(TypeError):
             # on width
             fail_inst = Rectangle(None, 3, 0, 0, 1)
@@ -124,15 +124,24 @@ class TestRectangle(unittest.TestCase):
             # on y
             fail_inst = Rectangle(2, 5, 0, None, 1)
 
+    def test_zero_values(self):
+        """Test passing 0."""
+        with self.assertRaises(ValueError):
+            # on width
+            fail_inst = Rectangle(0, 3, 0, 0, 1)
+        with self.assertRaises(ValueError):
+            # on height
+            fail_inst = Rectangle(2, 0, 0, 0, 1)
+
     def test_arg_number(self):
-        """test less that 3 args and more than 5 args"""
+        """Test less that 3 args and more than 5 args."""
         with self.assertRaises(TypeError):
             inst = Rectangle(3, 3, 0, 0, 1, 5)
         with self.assertRaises(TypeError):
             inst = Rectangle(1)
 
     def test_update(self):
-        """test update method"""
+        """Test update method."""
         inst_update = Rectangle(1, 1, 0, 0, 1)
         self.assertEqual(inst_update.to_dictionary(),
                          {'id': 1, 'width': 1, 'height': 1, 'x': 0, 'y': 0})
@@ -141,7 +150,7 @@ class TestRectangle(unittest.TestCase):
                          {'id': 13, 'width': 3, 'height': 2, 'x': 0, 'y': 0})
 
     def test_update_failure(self):
-        """test failures of update method"""
+        """Test failures of update method."""
         inst_up = Rectangle(1, 1, 1, 1)
         with self.assertRaises(TypeError):
             # More than five args
