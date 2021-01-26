@@ -2,6 +2,8 @@
 """ 17-main """
 from models.rectangle import Rectangle
 from models.square import Square
+import io
+from contextlib import redirect_stdout
 
 if __name__ == "__main__":
 
@@ -20,3 +22,12 @@ if __name__ == "__main__":
     print(s2)
     print(s1 is s2)
     print(s1 == s2)
+
+    inst_pr = Rectangle(2, 3, 0, 0)
+    inst_pr.display()
+    printing = io.StringIO()
+    with redirect_stdout(printing):
+        inst_pr.display()
+    printed = printing.getvalue()
+    ideal_str = "##\n##\n##\n"
+    print(ideal_str == printed)

@@ -11,6 +11,7 @@ class Rectangle(Base):
 
     Methods:
         setter and Getter methods for all arguments at creation.
+        __str__
         area: calculates the area of the Rectangle.
         display: print object.
         update: update several values.
@@ -98,23 +99,26 @@ class Rectangle(Base):
 
     def __str__(self):
         """String representation of object Rectangle."""
-        return "[Rectangle] ({}) \
-{}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x,
+                                                       self.y,
+                                                       self.width,
+                                                       self.height)
 
     def area(self):
         """Returns area of rectangle."""
-        return self.__height * self.__width
+        return self.height * self.width
 
     def display(self):
         """Prints rectangle with # characters."""
-        for y in range(self.y):
+        for yy in range(self.y):
             print("")
-        for h in range((self.__height)):
-            for x in range(self.x):
-                print(' ', end='')
-            for w in range(self.__width):
-                print('#', end='')
-            print("")
+        for h in range(self.height):
+            for xx in range(self.x):
+                print(" ", end="")
+            for w in range(self.width):
+                print('#', end="")
+            print()
 
     def update(self, *args, **kwargs):
         """Updates all values.

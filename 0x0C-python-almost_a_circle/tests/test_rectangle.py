@@ -1,11 +1,35 @@
 #!/usr/bin/python3
 """Unit Tests for the Rectangle class attributes and methods."""
 import unittest
+import io
+import contextlib
 from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
-    """All tests pertaining the Rectangle class."""
+    """All tests pertaining the Rectangle class.
+
+    Values tested:
+        negatives
+        strings
+        floats (regular float, infinity float, NaN float)
+        booleans
+        None
+        0
+        Less and more arguments than expected
+
+    Methods tested:
+        area()
+        str()
+        to_dictionary()
+        update()
+            valid arguments
+            valid key-value arguments
+            valid arguments and key-value arguments
+            invalid data types
+            too many parameters
+        display()
+    """
 
     def test_inst_methods(self):
         """Test methods."""
@@ -176,6 +200,16 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             # Wrong data type as kwargs
             inst_up.update(id=1, width=1, height='test', x=[1], y=1)
+
+    def test_display(self):
+        """Test display method."""
+        inst_pr = Rectangle(2, 3, 0, 0)
+        with io.StringIO() as printing:
+            with contextlib.redirect_stdout(printing):
+                inst_pr.display()
+                printed = printing.getvalue()
+        ideal_str = "##\n##\n##\n"
+        self.assertEqual(ideal_str, printed)
 
 if __name__ == '__main__':
     unittest.main()
