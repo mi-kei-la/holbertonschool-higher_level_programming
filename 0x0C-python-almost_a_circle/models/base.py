@@ -100,6 +100,11 @@ class Base():
         # Opens file and creates a csv writer. Then for every object
         # in the list, get the dictionary, save values to a list, and
         # write list to file.
+        if type(list_objs) != list:
+            raise TypeError
+        for obj in list_objs:
+            if type(obj) != cls:
+                raise TypeError
         with open(filename, "w") as fcsv:
             cwriter = csv.writer(fcsv, delimiter=",")
             for inst in list_objs:
