@@ -30,8 +30,9 @@ class Square(Rectangle):
         if type(size) is not int:
             raise TypeError("width must be an integer")
         if size <= 0:
-            raise ValueError("width musth be > 0")
-        self.__width = size
+            raise ValueError("width must be > 0")
+        self.width = size
+        self.height = size
 
     def update(self, *args, **kwargs):
         """Updates all values.
