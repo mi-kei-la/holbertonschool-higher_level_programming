@@ -4,7 +4,6 @@ import json
 import csv
 
 
-
 class Base():
     """This class gives all instances an id.
 
