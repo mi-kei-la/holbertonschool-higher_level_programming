@@ -41,24 +41,17 @@ class Base():
         filename = cls.__name__ + ".json"
         # Checks if list_objs exists, is list and is not empty. If it's
         # empty, or not a list, return an empty list.
-        if list_objs and len(list_objs) > 0 and type(list_objs) is list:
+        if list_objs is not None:
             # Checks the type of all elements in list. If the element is
             # an object, then the dictionary of that element is appended
             # to a list. That list is then converted to a JSON string and
             # written to a file.
             for obj in list_objs:
-                if isinstance(obj, Base) is False:
-                    raise TypeError
-                else:
-                    obj_dic = obj.to_dictionary()
-                    ret_list.append(obj_dic)
-            ret_str = obj.to_json_string(ret_list)
-            with open(filename, "w") as f:
-                f.write(ret_str)
-            return
-        else:
-            with open(filename, "w") as f:
-                f.write(ret_list)
+                obj_dic = obj.to_dictionary()
+                ret_list.append(obj_dic)
+            ret_list = cls.to_json_string(ret_list)
+        with open(filename, "w") as f:
+            f.write(ret_list)
 
     @classmethod
     def load_from_file(cls):
