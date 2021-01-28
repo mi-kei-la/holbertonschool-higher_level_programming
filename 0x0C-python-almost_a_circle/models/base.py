@@ -163,17 +163,14 @@ class Base():
         if json_string and type(json_string) is str:
             return json.loads(json_string)
         else:
-            return []
+            return "[]"
 
     @staticmethod
     def to_json_string(list_dictionaries):
         """Return the JSON string representation of a list of dictionaries.
         If list_dictionaries is empty or None, return empty list.
         """
-        if list_dictionaries and len(list_dictionaries) > 0:
-            if type(list_dictionaries) is not list:
-                raise TypeError
-            else:
-                return json.dumps(list_dictionaries)
+        if list_dictionaries is None:
+           return "[]"
         else:
-            return []
+            return json.dumps(list_dictionaries)
