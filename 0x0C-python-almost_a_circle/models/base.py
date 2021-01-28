@@ -29,8 +29,8 @@ class Base():
         if id is not None:
             self.id = id
         else:
-            type(self).__nb_objects += 1
-            self.id = type(self).__nb_objects
+            Base.__nb_objects += 1
+            self.id = self.__nb_objects
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -172,5 +172,4 @@ class Base():
         """
         if list_dictionaries is None:
            return "[]"
-        else:
-            return json.dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
