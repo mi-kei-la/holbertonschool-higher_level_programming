@@ -171,5 +171,5 @@ class Base():
         If list_dictionaries is empty or None, return empty list.
         """
         if list_dictionaries is None:
-           return "[]"
+            return "[]"
         return json.dumps(list_dictionaries)
