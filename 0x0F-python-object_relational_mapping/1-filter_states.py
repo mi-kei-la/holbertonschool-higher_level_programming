@@ -10,8 +10,9 @@ if __name__ == "__main__":
                          passwd=argv[2], db=argv[3], port=3306)
     cursor = db.cursor()
 # MySQL Query.
-    sql = "SELECT * FROM {}.states \
-           ORDER BY states.id ASC;".format(db_name)
+    sql = "SELECT * FROM states \
+           WHERE name LIKE 'N%' \
+           ORDER BY states.id ASC;"
 # Execute query.
     cursor.execute(sql)
     results = cursor.fetchall()
