@@ -17,7 +17,8 @@ if __name__ == "__main__":
     cursor.execute(sql)
     results = cursor.fetchall()
     for row in results:
-        print(row)
+        if row[1] == argv[4]:
+            print(row)
 # Close the connections.
     cursor.close()
     db.close()
