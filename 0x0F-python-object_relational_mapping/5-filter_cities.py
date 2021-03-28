@@ -8,12 +8,15 @@ if __name__ == "__main__":
     password = argv[2]
     db_name = argv[3]
     search = argv[4]
+    new_list = []
 
     db = MySQLdb.connect("localhost", username, password, db_name)
     cursor = db.cursor()
-    cursor.execute("SELECT GROUP_CONCAT(cities.name SEPARATOR ', ') \
+    cursor.execute("SELECT cities.name \
                    FROM states JOIN cities WHERE states.id = cities.state_id \
                    AND states.name = %s ORDER BY cities.id", (search, ))
     results = cursor.fetchall()
-    print(results[0][0])
+    for i in results:
+        new_list.append(i[0])
+    print(", ".join(new_list))
     db.close()
