@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const request = require('request');
 const url = process.argv[2];
-var count = 0;
+let count = 0;
 
 request.get(url, function (response, body) {
   const films = (JSON.parse(body.body).results);
