@@ -23,6 +23,8 @@ request.get(url, function (error, response, body) {
       count++;
     }
   }
-  masterDict[lastId] = count;
+  if (count !== 0) {
+    masterDict[lastId] = count;
+  }
   console.log(masterDict);
 });
