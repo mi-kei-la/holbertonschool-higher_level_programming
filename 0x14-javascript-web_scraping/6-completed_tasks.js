@@ -13,7 +13,9 @@ request.get(url, function (error, response, body) {
   let lastId = ret[0].userId;
   for (const task in ret) {
     if (ret[task].userId !== lastId) {
-      masterDict[lastId] = count;
+      if (count !== 0) {
+        masterDict[lastId] = count;
+      }
       lastId++;
       count = 0;
     }
