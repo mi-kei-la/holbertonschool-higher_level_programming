@@ -8,9 +8,9 @@ request.get(url, function (error, response, body) {
     console.log(error);
     return;
   }
-  let lastId = 1;
   let count = 0;
   const ret = JSON.parse(body);
+  let lastId = ret[0].userId;
   for (const task in ret) {
     if (ret[task].userId !== lastId) {
       masterDict[lastId] = count;
